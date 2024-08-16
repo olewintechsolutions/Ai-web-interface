@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+    --font-1: "Inter", sans-serif;
+    --section-gap: 24px;
+    --border-radius-1: 8px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-1);
+}
+
+.theme-light {
+    --colour-1: #f5f5f5;
+    --colour-2: #000000;
+    --colour-3: #474747;
+    --blur-bg: #ffffff;
+    --blur-border: 1px solid #dbdbdb57;
+    --blur-box-shadow: 2px 2px 2px #dbdbdb57;
+}
+
+.theme-dark {
+    --colour-1: #181818;
+    --colour-2: #ccc;
+    --colour-3: #dadada;
+    --blur-bg: #242627;
+    --blur-border: 1px solid #47474757;
+    --blur-box-shadow: 2px 2px 2px #47474757;
+}
+
+body {
+    background: var(--colour-1);
+    color: var(--colour-3);
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--section-gap);
+}
+
+header h1 {
+    font-size: 1.5rem;
+    color: var(--colour-2);
+}
+
+.theme-switcher {
+    padding: 8px 16px;
+    border-radius: var(--border-radius-1);
+    background-color: var(--colour-3);
+    color: var(--colour-1);
+    border: none;
+    cursor: pointer;
+}
+
+.conversation {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+}
+
+.conversation-content {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    border-radius: var(--border-radius-1);
+    border: var(--blur-border);
+    background-color: var(--blur-bg);
+    box-shadow: var(--blur-box-shadow);
+    margin-bottom: var(--section-gap);
+}
+
+.message {
+    margin-bottom: 16px;
+}
+
+.message p {
+    background-color: var(--colour-2);
+    color: var(--colour-1);
+    padding: 8px 12px;
+    border-radius: var(--border-radius-1);
+    max-width: 70%;
+}
+
+.user-input {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+}
+
+.user-input textarea {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: var(--border-radius-1);
+    background-color: var(--blur-bg);
+    color: var(--colour-3);
+    box-shadow: var(--blur-box-shadow);
+    resize: none;
+    height: 50px;
+    margin-right: 12px;
+}
+
+.user-input textarea::placeholder {
+    color: var(--colour-3);
+}
+
+#send-button {
+    padding: 8px 16px;
+    background-color: var(--colour-3);
+    color: var(--colour-1);
+    border: none;
+    border-radius: var(--border-radius-1);
+    cursor: pointer;
+}
+
+#send-button:hover {
+    background-color: var(--colour-2);
+}
+
+@media screen and (max-width: 768px) {
+    .conversation {
+        height: 400px;
+    }
+}
