@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Web Interface</title>
+    <link rel="stylesheet" href="./style.css"> <!-- Link to your CSS file -->
+</head>
+<body class="theme-light"> <!-- or theme-dark for dark mode -->
+    <div class="container">
+        <header>
+            <h1>AI Assistant</h1>
+            <button class="button theme-switcher" onclick="toggleTheme()">Switch Theme</button>
+        </header>
+        
+        <section class="conversation box">
+            <div id="messages" class="conversation-content">
+                <div class="message">
+                    <p>Hello! How can I assist you today?</p>
+                </div>
+            </div>
+            <div class="user-input box input-box">
+                <textarea id="userMessage" placeholder="Type your message..."></textarea>
+                <button id="send-button" class="button" onclick="sendMessage()">Send</button>
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('theme-dark');
+            document.body.classList.toggle('theme-light');
+        }
+
+        function sendMessage() {
+            let userInput = document.getElementById('userMessage').value;
+            if (userInput) {
+                let messagesDiv = document.getElementById('messages');
+                let userMessageDiv = document.createElement('div');
+                userMessageDiv.classList.add('message');
+                userMessageDiv.innerHTML = `<p>${userInput}</p>`;
+                messagesDiv.appendChild(userMessageDiv);
+                document.getElementById('userMessage').value = '';
+
+                // Scroll to the bottom of the messages
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            }
+        }
+    </script>
+</body>
+</html>
